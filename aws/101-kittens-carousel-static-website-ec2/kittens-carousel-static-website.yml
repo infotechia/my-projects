@@ -39,3 +39,9 @@ Resources:
           FromPort: 80
           IpProtocol: "tcp"
           ToPort: 80
+Outputs:
+  WebsiteURL:
+    Value: !Sub 
+      - http://${PublicAddress} 
+      - PublicAddress: !GetAtt myec2.PublicDnsName
+    Description: Kittens Carousel Application URL
